@@ -14,23 +14,23 @@ public:
 							{-6,-6,-6,-6,-6,-6,-6,-6},
 							{0, 0, 0, 0, 0, 0, 0, 0 },
 							{0, 0 ,0 ,0 ,0 ,0, 0, 0 },
-							{0 ,0 ,0 ,0, 0, 0, 0, 0},
-							{0 ,0 ,0 ,0 ,0 ,0 ,0 ,0},
-							{6 ,6, 6 ,6 ,6, 6, 6, 6},
+							{0 ,0 ,0 ,0, 0, 0, 0, 0 },
+							{0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 },
+							{6 ,6, 6 ,6 ,6, 6, 6, 6 },
 							{1, 2, 3, 4, 5, 3, 2, 1}};
 		
 
 	// temp chess testboard
- /*int chessboard[8][8]={ {0, 0, 0, 0, 0, 0, 0, 0},
-						{0, 0, 0, 0, 0, 0, 0, 0},
-						{0, 0, 0, 0, 0, 0, 0, 0},
-						{0, 0 ,0 ,0 ,0 ,0, 0, 0},
-						{0 ,0 ,0, 0, 0 ,0, 0, 0},
-						{0 ,0 ,0 ,0, 0, 0 ,0 ,0},
-						{0 ,0, 0 ,0 ,0, 0, 0, 0},
-						{0, 0, 0, 0, 0, 0, 0, 0} };
+	 /*int chessboard[8][8]={ {-1, 0, -3, -4, -5, 0, 0, -1},
+						{-6, -6, 0, 0, 0, -6, -6, -6},
+						{0, 0, -2, 0, 0, 0, 0, 0},
+						{0, 0 ,0 ,-2 ,-6 ,0, 0, 0},
+						{0 ,0 ,0, -6, 6 ,0, 0, 0},
+						{-3 ,6 ,0 ,-6, 0, 6 ,6 ,0},
+						{6 ,0, 6 ,0 ,0, 2, 0, 6},
+						{1, 0, 0, 4, 5, 3, 2, 1} };
+	
 	*/
-
 	string Turn = "AI";
 	string OppositeTurn = "player";
 	// 77
@@ -100,7 +100,7 @@ public:
 		else{ Turn = "AI"; OppositeTurn = "player"; }
     }
 
-
+	// PrintChessBoard with Numbers
 	void PrintChessBoard() {
 		for (int y = 0; y < 8; y++) {
 			for (int x = 0; x < 8; x++) {
@@ -110,6 +110,31 @@ public:
 	} 
 		cout << endl << endl << endl;
 	}
+
+
+	// PrintChessBoard Board Converter
+	void PrintUIChessBoard(){
+		// 0th place = '0' 1st place = tower 2=bishop etc
+		string AIPieceID[7] = { "0","R","K","B","Q","N","P" };
+		string PlayerPieceID[7] = { "0","r","k","b" ,"q","n","p" };
+
+		for (int y = 0; y < 8; y++) {
+			for (int x = 0; x < 8; x++) {
+
+				if (chessboard[y][x] < 0) { cout << PlayerPieceID[abs(chessboard[y][x])] << "  "; }
+				else{ cout << AIPieceID[abs(chessboard[y][x])] << "  "; }
+			}
+			cout << endl;
+		}
+		cout << endl << endl << endl;
+
+	}
+
+
+
+	// FEN to BoardClass function
+	void FenToBoard(string FEN, const BoardClass obj);
+
 
 	// Operator overloading board package transmission
 

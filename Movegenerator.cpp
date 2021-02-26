@@ -482,7 +482,7 @@ void Movegenerator::PieceSearch(int cx, int cy, int ID)
 
 			// Check if we can jump forward 2 times 
 			if (!HasPawnMoved(cx, cy)) {
-				if (!IsThereAPiece(cx, cy + 2)) {
+				if (!IsThereAPiece(cx, cy + 2) && !IsThereAPiece(cx,cy+1)) {
 					if (!WillKingBeInDanger(createmove(cx, cy, cx, cy + 2))) {
 						movelist.push_back(createmove(cx, cy, cx, cy + 2));
 					}
@@ -533,7 +533,7 @@ void Movegenerator::PieceSearch(int cx, int cy, int ID)
 		else {
 			// Check if we can jump forward 2 times 
 			if (!HasPawnMoved(cx, cy)) {
-				if (!IsThereAPiece(cx, cy - 2)) {
+				if (!IsThereAPiece(cx, cy - 2) && IsThereAPiece(cx,cy-2)) {
 					if (!WillKingBeInDanger(createmove(cx, cy, cx, cy - 2))) {
 						movelist.push_back(createmove(cx, cy, cx, cy - 2));
 					}

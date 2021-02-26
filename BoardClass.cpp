@@ -109,6 +109,7 @@ int BoardClass::ImplementMoveFindID(string move){
 
 }
 
+
 // Implement final move
 	// ID = 100 basic move
 	// ID = 99 Pawn has reached end of board
@@ -155,3 +156,31 @@ void BoardClass::ImplementMoveOnBoard(string move, int MoveID) {
 	}
 
 }
+
+
+
+// Fen to board class, takes the FEN notation and the boardclass which we want to change the board and its properties
+void BoardClass::FenToBoard(string FEN, const BoardClass obj) {
+
+	// 8 rows reserved for the board
+	// 1 row for turn
+	// 1 row for king castle properties indicators
+	string FENArray[10];
+	char space = ' ';
+	char end = '/';
+
+	bool loopcontinue = true;
+	int loopcounter = 0;
+	int Layer = 0;
+
+	while (loopcontinue) {
+
+		// Going through the board and 
+		if(Layer<=7 && Layer>=0){
+		
+		}
+
+	}
+	
+}
+

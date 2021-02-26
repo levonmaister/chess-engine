@@ -328,7 +328,7 @@ bool Rules::IsSquareInDanger(int x, int y)
 
     // YOU DONT NEED COUNTER WHEN DEALING WITH PAWNS
 
-       // Right Pawn search for AI squares and threats from player
+       // Right Pawn search for player squares and threats from AI
     if (Turn == "player") {
         if (!IsItOutOfBoard(oldx(ScanGetCordinatesNE(x + counter, y + counter)), oldy(ScanGetCordinatesNE(x + counter, y + counter))))
         {
@@ -344,7 +344,7 @@ bool Rules::IsSquareInDanger(int x, int y)
            
         }
 
-        // Left pawn search for player squares
+        // Left pawn search for AI threats 
         if (!IsItOutOfBoard(oldx(ScanGetCordinatesNW(x - counter, y + counter)), oldy(ScanGetCordinatesNW(x - counter, y + counter))))
         {
 
@@ -360,29 +360,30 @@ bool Rules::IsSquareInDanger(int x, int y)
 
     }
 
-    // Searching for threats from AI
+    // Searching for threats on AI
     else {
-        // Left pawn search for player squares
+        // Left pawn search for player threats
         if (!IsItOutOfBoard(oldx(ScanGetCordinatesSW(x - counter, y - counter)), oldy(ScanGetCordinatesSW(x - counter, y - counter))))
         {
 
 
             if (abs(ScanGetValueSW(x - counter, y + counter)) == 6)
             {
-                if (IdentifyTurn(oldx(ScanGetCordinatesSW(x - counter, y - counter)), oldy(ScanGetCordinatesNW(x - counter, y - counter))) == "player")
+                if (IdentifyTurn(oldx(ScanGetCordinatesSW(x - counter, y - counter)), oldy(ScanGetCordinatesSW(x - counter, y - counter))) == "player")
                 {
                         return true;
                 }
             }
         }
 
-        if (!IsItOutOfBoard(oldx(ScanGetCordinatesSE(x + counter, y - counter)), oldy(ScanGetCordinatesSW(x + counter, y - counter))))
+        // Right pawn search for player threats
+        if (!IsItOutOfBoard(oldx(ScanGetCordinatesSE(x + counter, y - counter)), oldy(ScanGetCordinatesSE(x + counter, y - counter))))
         {
 
 
             if (abs(ScanGetValueSW(x + counter, y + counter)) == 6)
             {
-                if (IdentifyTurn(oldx(ScanGetCordinatesSW(x + counter, y - counter)), oldy(ScanGetCordinatesNW(x + counter, y - counter))) == "player")
+                if (IdentifyTurn(oldx(ScanGetCordinatesSE(x + counter, y - counter)), oldy(ScanGetCordinatesSE(x + counter, y - counter))) == "player")
                 {
                           return true;
                 }
@@ -391,7 +392,7 @@ bool Rules::IsSquareInDanger(int x, int y)
     }
 
     // ADD KING SEARCH
-
+    // king search added
     if(!IsItOutOfBoard(oldx(ScanGetCordinatesN(x,y)),oldy(ScanGetCordinatesN(x,y)) ) && IsThereAPiece(oldx(ScanGetCordinatesN(x,y)),oldy(ScanGetCordinatesN(x,y)))){
         if (IdentifyTurn(oldx(ScanGetCordinatesN(x, y)), oldy(ScanGetCordinatesN(x, y))) == OppositeTurn) {
             if (abs(ScanGetValueN(x, y)) == 5) { return true;}
@@ -587,10 +588,11 @@ bool Rules::CanKingCastle(string move)
         
         Rules implementedboard;
 
-        // data transfer
+        // data transfer    OBS WE MuST DO THE OTHER VARIABLES IN DATA TRANSFER
         implementedboard.Turn = IdentifyTurn(oldx(move), oldy(move));
         if (implementedboard.Turn == "player") { implementedboard.OppositeTurn = "AI"; }
         else { implementedboard.OppositeTurn = "player"; }
+
 
         // SETUP THE NEW BOARD
 

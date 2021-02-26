@@ -20,10 +20,18 @@ int main()
 	int randomnumber;
 	bool HasGameEnded = false;
 
+/*	AIObj.BSTMovegenerator.GenerateMoves();
+	for (int x = 0; x < AIObj.BSTMovegenerator.getLength(); x++) {
+
+
+		cout << AIObj.BSTMovegenerator.getMove(x) << endl;
+	}
+	*/
+
 	while (!HasGameEnded) {
 
 		// Print board after player move and beginning
-		BoardObj.PrintChessBoard();
+		BoardObj.PrintUIChessBoard();
 
 
 // AI PART
@@ -49,7 +57,7 @@ int main()
 
 // Player Part
 		// print AI move
-		BoardObj.PrintChessBoard();
+		BoardObj.PrintUIChessBoard();
 
 		// Check if game continues
 		if (PlayerObj.HaveTurnRanOutOfMoves()) { HasGameEnded = true; continue; }
@@ -76,6 +84,13 @@ int main()
 
 
 	cout << BoardObj.Turn << " just won" << endl;
+
+
+	
+
+
+
+
 
 
 	return 0;
