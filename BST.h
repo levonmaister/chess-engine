@@ -1,13 +1,16 @@
 #pragma once
-#include "Player.h"
-class BST : public Rules
+#include "Movegenerator.h"
+class BST : public BoardClass
 {
 public:
 	Movegenerator BSTMovegenerator;
+	BoardClass BSTBoard;
 	int RandomNumberGen();
+	void CreateTree();
+	Node* rootptr;
 
 
-
+// Data transfer between main Board and AI
 	void operator =(const BoardClass& CopySource) {
 		for (int x = 0; x < 8; x++) {
 			for (int y = 0; y < 8; y++) {

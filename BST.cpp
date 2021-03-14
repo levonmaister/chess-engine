@@ -14,3 +14,12 @@ int BST::RandomNumberGen() {
 
 
 }
+
+
+
+void BST::CreateTree(){
+
+	rootptr = new Node(this);
+
+
+}
