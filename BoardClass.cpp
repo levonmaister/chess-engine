@@ -100,11 +100,20 @@ int BoardClass::ScanGetValueGeneral(int x, int y) { return chessboard[y][x]; };
 
 int BoardClass::ImplementMoveFindID(string move){
 	string KingCastleMoves[4] { "+4+0+7+0","+4+0+0+0","+4+7+7+7","+4+7+0+7" };
-	for (int x = 0; x < 4; x++) { if (KingCastleMoves[x] == move) { return 101; } }
+	// Checking for KingCastleMoves
+	for (int x = 0; x < 4; x++) { 
+		// if we found a king castle move
+		if (KingCastleMoves[x] == move) { 
+		// Checking it is actually a king we are moving
+		if(abs(chessboard[oldy(move)][oldx(move)])==5){return 101;}    
+		} 
+	}
+
+		// Checking for pawn moves
 	if (abs(chessboard[oldy(move)][oldx(move)]) == 6) {
 		if (newy(move) == 7 || newy(move) == 0) { return 99; }
 	}
-	
+		// If it's a regular move
 	return 100;
 
 }

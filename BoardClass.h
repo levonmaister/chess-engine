@@ -1,6 +1,6 @@
 #pragma once
 #include "MoveFormatting.h"
-
+#include "Node.h"
 class BoardClass : public MoveFormatting
 {
 public:
@@ -163,6 +163,18 @@ public:
 		this->OppositeTurn = CopySource.OppositeTurn;
 	}
 
+// Giving the information to BSTBoard needed for implementing a move on the board which is:
+	void operator=(const Node& CopySource){
+
+		for (int x = 0; x < 8; x++) {
+			for (int y = 0; y < 8; y++) {
+				this->chessboard[x][y] = CopySource.chessboard[x][y];
+			}
+		}		
+
+	this->Turn = CopySource.Turn;
+
+	}
 	
 	
 	
