@@ -7,6 +7,7 @@ public:
 	BoardClass BSTBoard;
 	int RandomNumberGen();
 	void CreateTree();
+	void DeleteTree();
 	Node* rootptr;
 
 

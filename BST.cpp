@@ -23,3 +23,8 @@ void BST::CreateTree(){
 
 
 }
+
+void BST::DeleteTree() {
+	delete rootptr;
+
+}
