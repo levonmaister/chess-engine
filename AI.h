@@ -1,11 +1,10 @@
-#pragma once
 #include "BST.h"
 class AI : public BST
 {
 public:
 
 	void minimax();
-	int evaluationfunction();
+
 
 
 	AI(){
