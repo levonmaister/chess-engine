@@ -155,7 +155,7 @@ BST->BSTBoard.ImplementMoveOnBoard(move, moveID);
 //Generating the movelist
 
 // checking for current depth
-if(depth<5){
+if(depth<3){
     // Data transfer from node to bstmovegen
     BST->BSTMovegenerator = *(this);
 
