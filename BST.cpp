@@ -3,11 +3,10 @@
 #include <ctime>
 #include<cstdlib>
 
-int BST::RandomNumberGen() {
+int BST::RandomNumberGen(int max) {
 
 
 	int randy;
-	int max = BSTMovegenerator.getLength();
 
 	randy = rand() % max;
 	return randy;

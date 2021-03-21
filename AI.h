@@ -4,9 +4,14 @@ class AI : public BST
 {
 public:
 
-	void minimax();
+	int minimax(Node* nodeptr,bool maximizingPlayer);
 	int evaluationfunction(Node* node);
+	int max(int max1, int max2);
+	int mini(int min1, int min2);
 
+	// creates tree and then
+	// Implements minimax to find the move
+	string GetMove();
 
 	AI(){
 		BSTMovegenerator.Turn = "AI";

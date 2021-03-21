@@ -33,7 +33,7 @@ int chessboard[8][8];
 
 vector<Node*> NodePtr;
 vector<string> Nmovelist;
-int evaluation;
+int evaluation=0;
 
 
 

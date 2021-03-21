@@ -5,7 +5,7 @@ class BST : public BoardClass
 public:
 	Movegenerator BSTMovegenerator;
 	BoardClass BSTBoard;
-	int RandomNumberGen();
+	int RandomNumberGen(int max);
 	void CreateTree();
 	void DeleteTree();
 	Node* rootptr;
