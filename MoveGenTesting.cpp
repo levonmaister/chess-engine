@@ -25,7 +25,7 @@ int main()
 	while (!HasGameEnded) {
 
 		// Print board after player move and beginning
-		BoardObj.PrintChessBoard();
+		BoardObj.PrintUIChessBoard();
 
 
 		// AI PART
@@ -52,7 +52,7 @@ int main()
 
 		// Player Part
 				// print AI move
-		BoardObj.PrintChessBoard();
+		BoardObj.PrintUIChessBoard();
 
 		// Check if game continues
 		if (PlayerObj.HaveTurnRanOutOfMoves()) { HasGameEnded = true; continue; }
